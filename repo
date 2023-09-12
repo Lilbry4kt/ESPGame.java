@@ -1,0 +1,62 @@
+import java.util.Scanner;
+ public class ESPGame { 
+public static void main(String[] args) { 
+final String COLOR_RED = "Red"; 
+final String COLOR_GREEN = "Green"; 
+final String COLOR_BLUE = "Blue"; 
+final String COLOR_ORANGE = "Orange";
+ final String COLOR_YELLOW = "Yellow"; 
+ Scanner scanner = new Scanner(System.in); 
+
+ System.out.print("Enter your name: "); 
+String userName = scanner.nextLine(); 
+
+ System.out.print("Describe yourself: "); 
+String userDescription = scanner.nextLine(); 
+
+ System.out.print("Due Date: ");
+ String dueDate = scanner.nextLine(); 
+
+ System.out.println(userName);
+ System.out.println(userDescription);
+System.out.println("Due Date: " + dueDate);
+
+  System.out.println("CMSC203 Assignment1: Test your ESP skills!"); 
+System.out.println("Round 1\n");
+
+  int correctGuesses = 0; 
+ for (int round = 1; round < 10; round++)
+ { System.out.println("I am thinking of a color.");
+ System.out.println("Is it " + COLOR_RED + ", " + COLOR_GREEN + ", 
+" + COLOR_BLUE + ", " + COLOR_ORANGE + ", or " + COLOR_YELLOW + "?"); 
+System.out.print("Enter your guess: ");
+ String userGuess = scanner.nextLine();  
+
+String computerChoice = getRandomColor(COLOR_RED, COLOR_GREEN, 
+COLOR_BLUE, COLOR_ORANGE, COLOR_YELLOW);  
+
+if(userGuess.equalsIgnoreCase(computerChoice))
+
+ { System.out.println("\nI was thinking of " + computerChoice + ".\n"); 
+correctGuesses++; } 
+else { System.out.println("\nYou entered incorrect color. Is it " 
++ COLOR_RED + ", " + COLOR_GREEN + ", " + COLOR_BLUE + ", " + COLOR_ORANGE + ", or " + COLOR_YELLOW + "?"); 
+System.out.print("Enter your guess again: "); 
+userGuess = scanner.nextLine(); 
+
+ if (userGuess.equalsIgnoreCase(computerChoice))
+ { System.out.println("\nI was thinking of " + computerChoice + ".\n");
+ correctGuesses++; 
+} } 
+System.out.println("Round " + (round + 1) + "\n"); 
+}  System.out.println("Game Over");
+ System.out.println("\nYou guessed " + correctGuesses + " out of 10 colors correctly."); 
+System.out.println("User Name: " + userName); 
+System.out.println("User Description: " + userDescription); 
+System.out.println("Due Date: " + dueDate); 
+
+ scanner.close(); 
+
+}  private static String getRandomColor(String... colors)
+ { int randomIndex = (int) (Math.random() * colors.length); 
+return colors[randomIndex]; } }
