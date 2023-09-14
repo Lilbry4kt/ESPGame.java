@@ -1,6 +1,6 @@
 import java.util.Scanner;
  public class ESPGame { 
-public static void main(String[] args) { 
+public static void main() { 
 final String COLOR_RED = "Red"; 
 final String COLOR_GREEN = "Green"; 
 final String COLOR_BLUE = "Blue"; 
